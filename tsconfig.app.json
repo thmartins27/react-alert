@@ -9,10 +9,10 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    // "allowImportingTsExtensions": true, // Remova ou comente esta linha
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": true,
+    "noEmit": false, // Certifique-se de que é false para gerar arquivos JavaScript
     "jsx": "react-jsx",
 
     /* Linting */
@@ -20,7 +20,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Output */
+    "outDir": "./dist", // Saída dos arquivos compilados
+    "declaration": true, // Gera arquivos .d.ts
+    "declarationDir": "./dist/types" // Diretório para os arquivos .d.ts
   },
   "include": ["src"]
 }
