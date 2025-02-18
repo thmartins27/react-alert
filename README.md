@@ -1,50 +1,78 @@
-# React + TypeScript + Vite
+# Sistema de Alertas com React e Context API  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto fornece um sistema de alertas utilizando **React**, **Context API** e **TailwindCSS**, permitindo exibir mensagens de sucesso e erro de forma dinâmica.  
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React  
+- Context API  
+- TailwindCSS  
+- Heroicons  
+- Headless UI  
 
-## Expanding the ESLint configuration
+## 📦 Instalação  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```sh  
+git clone <repo-url>  
+cd alert  
+pnpm install  
+```  
 
-- Configure the top-level `parserOptions` property like this:
+## ▶️ Uso  
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 1. Envolva a aplicação com o `AlertContextProvider`  
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+No arquivo `_app.tsx` ou em um nível superior do componente:  
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```tsx  
+import { AlertContextProvider } from '../context/alert.context';  
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+function MyApp({ Component, pageProps }) {  
+  return (  
+    <AlertContextProvider>  
+      <Component {...pageProps} />  
+    </AlertContextProvider>  
+  );  
+}  
+
+export default MyApp;  
+```  
+
+### 2. Utilize o hook `useAlert` para disparar alertas  
+
+```tsx  
+import { useAlert } from '../context/alert.context';  
+
+const MyComponent = () => {  
+  const { alert } = useAlert();  
+
+  return (  
+    <button  
+      onClick={() =>  
+        alert('success', {  
+          title: 'Operação concluída',  
+          message: 'O item foi salvo com sucesso.',  
+        })  
+      }  
+    >  
+      Exibir Alerta  
+    </button>  
+  );  
+};  
+```  
+
+## 🎨 Personalização  
+
+Os estilos dos alertas podem ser ajustados diretamente nos componentes `Success.tsx` e `Error.tsx`, modificando as classes do TailwindCSS.  
+
+## 🛠️ Desenvolvimento  
+
+Para rodar o projeto localmente:  
+
+```sh  
+pnpm dev  
+```  
+
+## 📄 Licença  
+
+Este projeto está licenciado sob a **MIT License**.
