@@ -1,6 +1,6 @@
 {
   "name": "@thmartins27/alert",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Um pacote de alerta para React",
   "type": "module",
   "main": "dist/index.js",
@@ -37,7 +37,11 @@
     "type": "git",
     "url": "https://github.com/thmartins27/react-alert.git"
   },
-  "keywords": ["react", "alert", "ui"],
+  "keywords": [
+    "react",
+    "alert",
+    "ui"
+  ],
   "author": "Thiago de Oliveira Martins",
   "license": "MIT"
 }
