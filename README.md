@@ -13,7 +13,7 @@ Este projeto fornece um sistema de alertas utilizando **React**, **Context API**
 ## 📦 Instalação  
 
 ```sh  
-git clone <repo-url>  
+git clone https://github.com/thmartins27/react-alert
 cd alert  
 pnpm install  
 ```  
