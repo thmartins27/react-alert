@@ -1,6 +1,6 @@
 {
   "name": "@thmartins27/alert",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Um pacote de alerta para React",
   "type": "module",
   "main": "dist/index.js",
